@@ -1,0 +1,8 @@
+.Tutorial {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

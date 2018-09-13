@@ -9,7 +9,12 @@ import Logo from './components/Logo/Logo.js';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm.js';
 import Rank from './components/Rank/Rank.js';
 import './App.css';
+import './index.css';
+import './components/TUTORIAL/Tutorial.css';
+import Forum from "./components/FORUM/Forum.js";
 
+import Home from "./components/HOME/Home.js";
+import Tutorial from "./components/TUTORIAL/Tutorial.js"
 const app = new Clarifai.App({
  apiKey: '90d1a395efcb48259c110118c84899f1'
 });
@@ -92,8 +97,10 @@ class App extends Component {
             params={particlesOptions}
         />
         <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+
         { this.state.route === 'home'
           ?  <div>
+                
                 <Logo />
                 <Rank />
                 <ImageLinkForm
