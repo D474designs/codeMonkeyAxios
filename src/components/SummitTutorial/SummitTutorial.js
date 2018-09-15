@@ -1,26 +1,54 @@
 import React from 'react';
 // import {BrowserRouter, Route } from "react-router-dom";
 // import Footer from "./footer"
+import './SummitTutorial.css'
 
 const Contact = () => {
   return (
-    <div>
 
-    <form onSubmit={this.handleSubmit}>
-      <label htmlFor="username">Tienes una sugerencia/tutorial para Codemonkeys? Diganos</label>
-      <br></br>
-        <label htmlFor="username">Nombre</label>
-        <input id="username" name="username" type="text" />
-  <br></br>
-        <label htmlFor="email">Correo Electronico</label>
-        <input id="email" name="email" type="email" />
-  <br></br>
-        <label htmlFor="birthdate">Comentarios</label>
-        <input id="birthdate" name="birthdate" type="text" />
-  <br></br>
-        <button>Enviar</button>
-      </form>
-</div>
+<div id="contact-form">
+	<div>
+		<h1>Un place en concrete!</h1>
+		<h4>Tienes una sugerencia/tutorial para Codemonkeys?</h4>
+	</div>
+		<p id="failure">Oopsie...no se mando el mensaje.</p>
+		<p id="success">Tu mensaje fue mandado, Gracias!</p>
+
+		   <form method="post" action="/">
+			<div>
+		      <label for="name">
+		      	<span class="required">Nombre: *</span>
+		      	<input type="text" id="name" name="name" value="" placeholder="Your Name" required="required" tabindex="1" autofocus="autofocus" />
+		      </label>
+			</div>
+			<div>
+		      <label for="email">
+		      	<span class="required">Email: *</span>
+		      	<input type="email" id="email" name="email" value="" placeholder="Your Email" tabindex="2" required="required" />
+		      </label>
+			</div>
+			<div>
+		      <label for="subject">
+		      <span>Tema: </span>
+			      <select id="subject" name="subject" tabindex="4">
+			         <option value="hello">Sobre CodeMonkeys</option>
+			         <option value="quote">Me gustaria?!</option>
+			         <option value="general">-Me gustaria ayudar! - </option>
+			      </select>
+		      </label>
+			</div>
+			<div>
+		      <label for="message">
+		      	<span class="required">Mensaje: *</span>
+		      	<textarea id="message" name="message" placeholder="Escribe tu mensaje aqui." tabindex="5" required="required"></textarea>
+		      </label>
+			</div>
+			<div>
+		      <button name="submit" type="submit" id="submit" >SEND</button>
+			</div>
+		   </form>
+
+	</div>
 
   );
 }

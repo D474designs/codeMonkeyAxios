@@ -10,6 +10,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import Tutorial from './components/tutorial/tutorial.js';
 import Contact from './components/SummitTutorial/SummitTutorial.js'
+import Home from './components/Home/Home.js'
 import './App.css';
 
 //You must add your own API key here from Clarifai.
@@ -161,7 +162,7 @@ class App extends Component {
                       :(route === 'home'
                       ? <div>
                           <Logo />
-                          <p> PUT THE HOME HERE</p>
+                          <Home />
                         </div>
                         : (
                            route === 'signin'
