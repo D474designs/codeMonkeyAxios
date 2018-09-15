@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Courier New", Courier, monospace;
-  background: linear-gradient(to right, rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.85) 4%,rgba(0,0,0,0.01) 99%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.75) 1%,rgba(0,0,0,0.2) 100%);
 }
 
 button {

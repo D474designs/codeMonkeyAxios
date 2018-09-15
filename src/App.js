@@ -137,6 +137,8 @@ class App extends Component {
               onButtonSubmit={this.onButtonSubmit}
             />
             <FaceRecognition box={box} imageUrl={imageUrl} />
+            <a href="http://vision-explorer.reactive.ai/">Una nube de imagenes</a>
+
             </div>
 
             :(route === 'sugerencias'
