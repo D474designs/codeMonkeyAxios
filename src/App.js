@@ -8,7 +8,8 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
-import Tutorial from './components/tutorial/tutorial.js'
+import Tutorial from './components/tutorial/tutorial.js';
+import Contact from './components/SummitTutorial/SummitTutorial.js'
 import './App.css';
 
 //You must add your own API key here from Clarifai.
@@ -141,6 +142,7 @@ class App extends Component {
               ? <div>
                 <logo />
                 <p> Pedidos component here  </p>
+                <Contact />
                 </div>
 
                   :(route === 'foro'
