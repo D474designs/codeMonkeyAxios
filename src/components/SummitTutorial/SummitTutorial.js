@@ -2,6 +2,7 @@ import React from 'react';
 // import {BrowserRouter, Route } from "react-router-dom";
 // import Footer from "./footer"
 import './SummitTutorial.css'
+import Footer from '../Footer/Footer.js'
 
 const Contact = () => {
   return (
@@ -47,7 +48,7 @@ const Contact = () => {
 		      <button name="submit" type="submit" id="submit" >Mandar</button>
 			</div>
 		   </form>
-
+       <Footer />
 	</div>
 
   );

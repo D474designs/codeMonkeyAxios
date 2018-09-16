@@ -12,11 +12,12 @@ import Tutorial from './components/tutorial/tutorial.js';
 import Contact from './components/SummitTutorial/SummitTutorial.js'
 import Home from './components/Home/Home.js'
 import Foro from './components/Foro/Foro.js'
+import Footer from './components/Footer/Footer.js'
 import './App.css';
 
 //You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
- apiKey: 'YOUR_API_HERE'
+ apiKey: '90d1a395efcb48259c110118c84899f1'
 });
 
 const particlesOptions = {
@@ -88,20 +89,20 @@ class App extends Component {
         Clarifai.FACE_DETECT_MODEL,
         this.state.input)
       .then(response => {
-        if (response) {
-          fetch('http://localhost:3001/image', {
-            method: 'put',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-              id: this.state.user.id
-            })
-          })
-            .then(response => response.json())
-            .then(count => {
-              this.setState(Object.assign(this.state.user, { entries: count}))
-            })
-
-        }
+      //   if (response) {
+      //     fetch('http://localhost:3000/image', {
+      //       method: 'put',
+      //       headers: {'Content-Type': 'application/json'},
+      //       body: JSON.stringify({
+      //         id: this.state.user.id
+      //       })
+      //     })
+      //       .then(response => response.json())
+      //       .then(count => {
+      //         this.setState(Object.assign(this.state.user, { entries: count}))
+      //       })
+      //
+      //   }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
       .catch(err => console.log(err));
@@ -133,19 +134,20 @@ class App extends Component {
               name={this.state.user.name}
               entries={this.state.user.entries}
             />
+            <a href="http://vision-explorer.reactive.ai/">Una nube de imagenes</a>
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onButtonSubmit={this.onButtonSubmit}
             />
             <FaceRecognition box={box} imageUrl={imageUrl} />
-            <a href="http://vision-explorer.reactive.ai/">Una nube de imagenes</a>
-
+            <div className='footer'>
+              <Footer />
+            </div>
             </div>
 
             :(route === 'sugerencias'
               ? <div>
                 <logo />
-                <p> Pedidos component here  </p>
                 <Contact />
                 </div>
 
@@ -153,6 +155,7 @@ class App extends Component {
                     ? <div>
                       <logo />
                       <Foro />
+                      <Footer />
                       </div>
 
                     :(route === 'tutorial'
@@ -160,12 +163,14 @@ class App extends Component {
                             <Logo />
                             <Tutorial />
                             <p> Tutorial </p>
+                            <Footer />
                           </div>
 
                       :(route === 'home'
                       ? <div>
                           <Logo />
                           <Home />
+                          <Footer />
                         </div>
                         : (
                            route === 'signin'
