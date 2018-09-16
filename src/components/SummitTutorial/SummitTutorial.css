@@ -69,8 +69,7 @@ h4{
    width:100%;
    border:none;
    background:black;
-   background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+   background-image:-moz-linear-gradient(bottom, #e8ac35 0%, #e8ac35 52%);
    background-image:-webkit-linear-gradient(bottom, black 0%, black 52%);
    color:white;
    margin:0 0 5px;
@@ -78,9 +77,8 @@ h4{
    border-radius:5px;
 }
 #contact-form button[type="submit"]:hover {
-   background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+   background-image:-moz-linear-gradient(bottom, #e8ac35 0%, #e8ac35 52%);
+   background-image:-webkit-linear-gradient(bottom, #e8ac35 0%, #e8ac35 52%);
    transition:background-color 0.3s ease-in-out;
 }
 #contact-form button[type="submit"]:active {
