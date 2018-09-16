@@ -1,9 +1,4 @@
-/* html{
-   background:url(http://phutora.com/img/friends3.jpg) no-repeat;
-   background-size: cover;
-   height:100%;
-   background-color: #000;
-} */
+
 * {
    box-sizing:border-box;
    -webkit-box-sizing:border-box;
@@ -73,11 +68,11 @@ h4{
    cursor:pointer;
    width:100%;
    border:none;
-   background:#991D57;
+   background:black;
    background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
    background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-   color:#FFF;
+   background-image:-webkit-linear-gradient(bottom, black 0%, black 52%);
+   color:white;
    margin:0 0 5px;
    padding:10px;
    border-radius:5px;
@@ -86,8 +81,6 @@ h4{
    background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
    background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
    background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-   -webkit-transition:background 0.3s ease-in-out;
-   -moz-transition:background 0.3s ease-in-out;
    transition:background-color 0.3s ease-in-out;
 }
 #contact-form button[type="submit"]:active {

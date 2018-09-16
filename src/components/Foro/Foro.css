@@ -1,0 +1,79 @@
+.box {
+	margin: 0;
+	padding: 0;
+	background:  url(images/img1.gif) repeat-y center top;
+	font: normal small "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #1f2021;
+}
+
+a {
+	border-bottom: 2px dotted #1f2021;
+	text-decoration: none;
+	color: #1f2021;
+}
+
+#logo h1 {
+	font-size: 2.5em;
+}
+
+#logo h2 {
+	font-size: 1em;
+}
+
+h3{
+	color: #1f2021;
+}
+
+#latest-post {
+	padding: 25px 0 0 0;
+	background: url(images/img3.gif) no-repeat center top;
+}
+
+#latest-post .title {
+	padding: 0 0 0 30px;
+	font-size: 1.5em;
+}
+
+#latest-post .title a {
+	background: none;
+}
+
+#latest-post .posted {
+	padding: 0 0 2em 30px;
+	font-size: x-small;
+}
+
+#latest-post .posted a {
+	background: none;
+}
+
+#latest-post .image {
+	float: left;
+	margin: 1em 1em 1em 0;
+}
+
+/* Recent Posts */
+
+#recent-posts {
+	padding: 50px 0 0 0;
+	background: url(images/img3.gif) no-repeat center top;
+}
+
+#recent-posts .title {
+	padding: 0 0 0 30px;
+	font-size: 1.5em;
+}
+
+#recent-posts ul {
+	margin: 0;
+	padding: 20px 0 0 30px;
+	list-style: none;
+}
+
+#recent-posts li {
+	padding: 5px 0 10px 0;
+}
+
+#recent-posts a {
+	background: none;
+}
