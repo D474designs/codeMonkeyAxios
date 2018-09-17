@@ -15,7 +15,6 @@ import Foro from './components/Foro/Foro.js'
 import Footer from './components/Footer/Footer.js'
 import './App.css';
 
-//You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
  apiKey: '90d1a395efcb48259c110118c84899f1'
 });
@@ -49,6 +48,12 @@ class App extends Component {
         joined: ''
       }
     }
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:300')
+      .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   loadUser = (data) => {
@@ -89,20 +94,6 @@ class App extends Component {
         Clarifai.FACE_DETECT_MODEL,
         this.state.input)
       .then(response => {
-      //   if (response) {
-      //     fetch('http://localhost:3000/image', {
-      //       method: 'put',
-      //       headers: {'Content-Type': 'application/json'},
-      //       body: JSON.stringify({
-      //         id: this.state.user.id
-      //       })
-      //     })
-      //       .then(response => response.json())
-      //       .then(count => {
-      //         this.setState(Object.assign(this.state.user, { entries: count}))
-      //       })
-      //
-      //   }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
       .catch(err => console.log(err));
