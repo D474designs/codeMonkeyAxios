@@ -1,6 +1,4 @@
 import React from 'react';
-// import {BrowserRouter, Route } from "react-router-dom";
-// import Footer from "./footer"
 import './SummitTutorial.css'
 import Footer from '../Footer/Footer.js'
 
