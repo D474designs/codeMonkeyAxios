@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
@@ -18,7 +16,7 @@ import Footer from './components/Footer/Footer.js'
 import './App.css';
 
 const app = new Clarifai.App({
-  apiKey: '90d1a395efcb48259c110118c84899f1'
+ apiKey: '90d1a395efcb48259c110118c84899f1'
 });
 
 const particlesOptions = {
@@ -52,24 +50,20 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch('https://localhost:3000/')
-      .then(response => response.json())
-      .then(data => this.setState({
-        data
-      }));
+  componentDidMount(){
+    fetch('http://localhost:300')
+      // .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   loadUser = (data) => {
-    this.setState({
-      user: {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entries: data.entries,
-        joined: data.joined
-      }
-    })
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }})
   }
 
   calculateFaceLocation = (data) => {
@@ -86,21 +80,15 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    this.setState({
-      box: box
-    });
+    this.setState({box: box});
   }
 
   onInputChange = (event) => {
-    this.setState({
-      input: event.target.value
-    });
+    this.setState({input: event.target.value});
   }
 
   onButtonSubmit = () => {
-    this.setState({
-      imageUrl: this.state.input
-    });
+    this.setState({imageUrl: this.state.input});
     app.models
       .predict(
         Clarifai.FACE_DETECT_MODEL,
@@ -113,148 +101,79 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      this.setState({
-        isSignedIn: false
-      })
+      this.setState({isSignedIn: false})
       //there are two states on the sign out
-    } else if (route === 'home' || route === 'tutorial' || route === 'foro' || route === 'pedidos' || route === 'ChangitoAI') {
-      this.setState({
-        isSignedIn: true
-      })
+    } else if (route === 'home' || route === 'tutorial' || route === 'foro' || route === 'pedidos' ||  route === 'ChangitoAI') {
+      this.setState({isSignedIn: true})
     }
-    this.setState({
-      route: route
-    });
+    this.setState({route: route});
   }
 
   render() {
-    const {
-      isSignedIn,
-      imageUrl,
-      route,
-      box
-    } = this.state;
-    return ( <
-      div className = "App" >
-      <
-      Particles className = 'particles'
-      params = {
-        particlesOptions
-      }
-      />
+    const { isSignedIn, imageUrl, route, box } = this.state;
+    return (
+      <div className="App">
+         <Particles className='particles'
+          params={particlesOptions}
+        />
 
-      <
-      Navigation isSignedIn = {
-        isSignedIn
-      }
-      onRouteChange = {
-        this.onRouteChange
-      }
-      /> {
-        route === 'ChangitoAI' ?
-          < div >
-          <
-          logo / >
-          <
-          Rank
-        name = {
-          this.state.user.name
-        }
-        entries = {
-          this.state.user.entries
-        }
-        /> <
-        a href = "http://vision-explorer.reactive.ai/" > Una nube de imagenes < /a> <
-          ImageLinkForm
-        onInputChange = {
-          this.onInputChange
-        }
-        onButtonSubmit = {
-          this.onButtonSubmit
-        }
-        /> <
-        FaceRecognition box = {
-          box
-        }
-        imageUrl = {
-          imageUrl
-        }
-        /> <
-        div className = 'footer' >
-          <
-          Footer / >
-          <
-          /div> <
-          /div>
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        { route === 'ChangitoAI'
+          ? <div>
+            <logo />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
+            <a href="http://vision-explorer.reactive.ai/">Una nube de imagenes</a>
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onButtonSubmit={this.onButtonSubmit}
+            />
+            <FaceRecognition box={box} imageUrl={imageUrl} />
+            <div className='footer'>
+              <Footer />
+            </div>
+            </div>
 
-          : (route === 'sugerencias' ?
-            < div >
-            <
-            logo / >
-            <
-            Contact / >
-            <
-            /div>
+            :(route === 'sugerencias'
+              ? <div>
+                <logo />
+                <Contact />
+                </div>
 
-            :
-            (route === 'foro' ?
-              < div >
-              <
-              logo / >
-              <
-              Foro / >
-              <
-              Footer / >
-              <
-              /div>
+                  :(route === 'foro'
+                    ? <div>
+                      <logo />
+                      <Foro />
+                      <Footer />
+                      </div>
 
-              :
-              (route === 'tutorial' ?
-                < div >
-                <
-                Logo / >
-                <
-                Tutorial / >
-                <
-                p > Tutorial < /p> <
-                Footer / >
-                <
-                /div>
+                    :(route === 'tutorial'
+                        ? <div>
+                            <Logo />
+                            <Tutorial />
+                            <p> Tutorial </p>
+                            <Footer />
+                          </div>
 
-                :
-                (route === 'home' ?
-                  < div >
-                  <
-                  Logo / >
-                  <
-                  Home / >
-                  <
-                  Footer / >
-                  <
-                  /div> :
-                  (
-                    route === 'signin' ?
-                    < Signin loadUser = {
-                      this.loadUser
-                    }
-                    onRouteChange = {
-                      this.onRouteChange
-                    }
-                    /> :
-                    < Register loadUser = {
-                      this.loadUser
-                    }
-                    onRouteChange = {
-                      this.onRouteChange
-                    }
-                    />
+                      :(route === 'home'
+                      ? <div>
+                          <Logo />
+                          <Home />
+                          <Footer />
+                        </div>
+                        : (
+                           route === 'signin'
+                           ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+                           : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+                          )
+                        )
+                      )
+                    )
                   )
-                )
-              )
-            )
-          )
-      } <
-      /div>
+         }
+      </div>
     );
   }
 }

@@ -14,3 +14,6 @@ const Rank = ({ name, entries }) => {
 }
 
 export default Rank;
+
+
+// ATM not working need set up server for it
